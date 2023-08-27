@@ -1,5 +1,8 @@
-# My Universal React Project
-
+# ToDo App - React-native TS with State Management
+## 📝 Extra Notes :
+<p>
+ If you need to build in your mobile phone. Firstly check expo application. When you `npm run start` to bundle will build in expo.
+</p>
 <p>
   <!-- iOS -->
   <a href="https://itunes.apple.com/app/apple-store/id982107779">
