@@ -1,16 +1,29 @@
 import React from 'react';
-import { Checkbox, List } from 'react-native-paper';
+import { Checkbox, List, IconButton } from 'react-native-paper';
 
-interface TodoItemProps {
+interface Todo {
+    id: string;
     text: string;
     completed: boolean;
-    onToggle: () => void;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ text, completed, onToggle }) => (
+interface TodoItemProps {
+    todo: Todo;
+    onToggle: () => void;
+    onDelete: () => void;
+    onEdit: () => void;
+}
+
+const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete, onEdit }) => (
     <List.Item
-        title={text}
-        left={() => <Checkbox status={completed ? 'checked' : 'unchecked'} onPress={onToggle} />}
+        title={todo.text}
+        left={() => <Checkbox status={todo.completed ? 'checked' : 'unchecked'} onPress={onToggle} />}
+        right={() => (
+            <>
+                <IconButton icon="pencil" onPress={onEdit} />
+                <IconButton icon="delete" onPress={onDelete} />
+            </>
+        )}
     />
 );
 
